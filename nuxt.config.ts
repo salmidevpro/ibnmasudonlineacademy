@@ -9,6 +9,28 @@ export default defineNuxtConfig({
     enabled: true
   },
 
+  app: {
+    head: {
+      title: 'IBN MAS\'UD ONLINE ACADEMY',
+
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Quality online Qur’an, Tajwīd, Arabic and Islamic education for children, teenagers, university students and adults.'
+        }
+      ],
+
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/jpeg',
+          href: '/favicon.jpeg'
+        }
+      ]
+    }
+  },
+
   css: ['~/assets/css/main.css'],
 
   routeRules: {
