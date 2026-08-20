@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const whatsappMessage = encodeURIComponent(
-  "Assalamu Alaikum. I would like to enquire about learning at IBN MAS'UD ONLINE ACADEMY."
+  'Assalamu Alaikum. I would like to enquire about learning at IBN MAS\'UD ONLINE ACADEMY.'
 )
 
 const whatsappUrl = `https://wa.me/2348074113418?text=${whatsappMessage}`
@@ -63,13 +63,11 @@ const learners = [
 
 <template>
   <main class="overflow-hidden bg-white">
-
     <!-- =====================================================
          HERO
     ====================================================== -->
 
     <section class="relative isolate overflow-hidden bg-[#faf9f5]">
-
       <!-- Background -->
       <div
         aria-hidden="true"
@@ -1072,7 +1070,6 @@ const learners = [
   }
 
 }
-
 
 /* =========================================================
    ACCESSIBILITY

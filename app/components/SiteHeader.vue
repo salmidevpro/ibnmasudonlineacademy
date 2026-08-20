@@ -15,10 +15,10 @@ const navigation = [
     label: 'Programmes',
     to: '/programmes'
   },
-  {
-    label: 'How It Works',
-    to: '/how-it-works'
-  },
+  // {
+  //   label: 'How It Works',
+  //   to: '/how-it-works'
+  // },
   {
     label: 'Progress',
     to: '/progress'
