@@ -1,4 +1,6 @@
 <script setup lang="ts">
+defineOptions({ name: 'AppFooter' })
+
 const whatsappMessage = encodeURIComponent(
   'Assalamu Alaikum. I would like to enquire about learning at IBN MAS\'UD ONLINE ACADEMY.'
 )
