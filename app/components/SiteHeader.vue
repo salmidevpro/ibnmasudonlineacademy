@@ -15,10 +15,6 @@ const navigation = [
     label: 'Programmes',
     to: '/programmes'
   },
-  // {
-  //   label: 'How It Works',
-  //   to: '/how-it-works'
-  // },
   {
     label: 'Progress',
     to: '/progress'
@@ -34,6 +30,10 @@ const navigation = [
   {
     label: 'FAQs',
     to: '/faq'
+  },
+  {
+    label: 'Portal',
+    to: '/portal'
   }
 ]
 
@@ -73,12 +73,13 @@ watch(isMenuOpen, (open) => {
         : 'bg-white'
     "
   >
+    <!-- Header container -->
     <div
-      class="mx-auto flex h-[76px] max-w-[1440px] items-center px-5 sm:px-8 lg:h-[82px] lg:px-10 xl:px-12"
+      class="mx-auto flex h-19 max-w-360 items-center px-5 sm:px-8 lg:h-20.5 lg:px-10 xl:px-12"
     >
-      <!-- Logo -->
-      <!-- Brand -->
-      <!-- Brand -->
+      <!-- =========================================
+           LOGO
+           ========================================= -->
       <NuxtLink
         to="/"
         aria-label="IBN MAS'UD ONLINE ACADEMY home"
@@ -100,7 +101,9 @@ watch(isMenuOpen, (open) => {
         </div>
       </NuxtLink>
 
-      <!-- Desktop navigation -->
+      <!-- =========================================
+           DESKTOP NAVIGATION
+           ========================================= -->
       <nav
         aria-label="Main navigation"
         class="ml-auto hidden items-center lg:flex"
@@ -112,18 +115,34 @@ watch(isMenuOpen, (open) => {
             :to="item.to"
             class="group relative px-3 py-3 text-[13px] font-medium text-[#17382b]/70 transition-colors duration-300 hover:text-[#073b29] xl:px-3.5"
           >
-            <span>
+            <!-- Portal special styling -->
+            <span
+              v-if="item.label === 'Portal'"
+              class="relative inline-flex items-center gap-1.5 font-semibold text-[#073b29]"
+            >
+              <UIcon
+                name="i-lucide-log-in"
+                class="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5"
+              />
+
               {{ item.label }}
             </span>
 
-            <!-- Active / hover line -->
+            <!-- Normal navigation item -->
+            <span v-else>
+              {{ item.label }}
+            </span>
+
+            <!-- Hover / active line -->
             <span
               class="absolute bottom-1.5 left-1/2 h-[2px] w-0 -translate-x-1/2 rounded-full bg-[#c9ae58] transition-all duration-300 group-hover:w-4/5"
             />
           </NuxtLink>
         </div>
 
-        <!-- WhatsApp -->
+        <!-- =========================================
+             WHATSAPP
+             ========================================= -->
         <a
           href="https://wa.me/2348074113418"
           target="_blank"
@@ -147,10 +166,12 @@ watch(isMenuOpen, (open) => {
           </span>
         </a>
 
-        <!-- Enrol CTA -->
+        <!-- =========================================
+             ENROL CTA
+             ========================================= -->
         <NuxtLink
           to="/enrol"
-          class="ml-4 inline-flex h-11 items-center gap-2 rounded-full bg-[#073b29] px-5 text-[12px] font-bold uppercase tracking-[0.08em] text-white shadow-[0_8px_24px_rgba(7,59,41,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0a4b35] hover:shadow-[0_12px_30px_rgba(7,59,41,0.22)]"
+          class="group ml-4 inline-flex h-11 items-center gap-2 rounded-full bg-[#073b29] px-5 text-[12px] font-bold uppercase tracking-[0.08em] text-white shadow-[0_8px_24px_rgba(7,59,41,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0a4b35] hover:shadow-[0_12px_30px_rgba(7,59,41,0.22)]"
         >
           <span>Enrol Now</span>
 
@@ -161,7 +182,9 @@ watch(isMenuOpen, (open) => {
         </NuxtLink>
       </nav>
 
-      <!-- Mobile actions -->
+      <!-- =========================================
+           MOBILE ACTIONS
+           ========================================= -->
       <div class="ml-auto flex items-center gap-2 lg:hidden">
         <!-- WhatsApp -->
         <a
@@ -187,6 +210,7 @@ watch(isMenuOpen, (open) => {
           @click="isMenuOpen = !isMenuOpen"
         >
           <span class="relative block h-4 w-5">
+            <!-- Top -->
             <span
               class="absolute left-0 top-0 h-[1.5px] w-5 rounded-full bg-current transition-all duration-300"
               :class="
@@ -196,6 +220,7 @@ watch(isMenuOpen, (open) => {
               "
             />
 
+            <!-- Middle -->
             <span
               class="absolute left-0 top-[7px] h-[1.5px] w-5 rounded-full bg-current transition-all duration-300"
               :class="
@@ -205,6 +230,7 @@ watch(isMenuOpen, (open) => {
               "
             />
 
+            <!-- Bottom -->
             <span
               class="absolute left-0 top-[14px] h-[1.5px] w-5 rounded-full bg-current transition-all duration-300"
               :class="
@@ -218,7 +244,9 @@ watch(isMenuOpen, (open) => {
       </div>
     </div>
 
-    <!-- Mobile navigation -->
+    <!-- =========================================
+         MOBILE NAVIGATION
+         ========================================= -->
     <Transition
       enter-active-class="transition duration-300 ease-out"
       enter-from-class="translate-y-[-8px] opacity-0"
@@ -245,11 +273,19 @@ watch(isMenuOpen, (open) => {
               @click="closeMenu"
             >
               <span class="flex items-center gap-3">
+                <!-- Number -->
                 <span
                   class="text-[10px] font-semibold tracking-[0.12em] text-[#c9ae58]"
                 >
-                  0{{ index + 1 }}
+                  {{ String(index + 1).padStart(2, '0') }}
                 </span>
+
+                <!-- Portal icon -->
+                <UIcon
+                  v-if="item.label === 'Portal'"
+                  name="i-lucide-log-in"
+                  class="h-4 w-4 text-[#073b29] transition-transform duration-300 group-hover:-translate-y-0.5"
+                />
 
                 {{ item.label }}
               </span>
@@ -261,21 +297,25 @@ watch(isMenuOpen, (open) => {
             </NuxtLink>
           </div>
 
-          <!-- Mobile CTA -->
+          <!-- =====================================
+               MOBILE CTA
+               ===================================== -->
           <NuxtLink
             to="/enrol"
-            class="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#073b29] text-[12px] font-bold uppercase tracking-[0.1em] text-white transition-all duration-300 hover:bg-[#0a4b35]"
+            class="group mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#073b29] text-[12px] font-bold uppercase tracking-[0.1em] text-white transition-all duration-300 hover:bg-[#0a4b35]"
             @click="closeMenu"
           >
-            Enrol Now
+            <span>Enrol Now</span>
 
             <UIcon
               name="i-lucide-arrow-up-right"
-              class="h-4 w-4"
+              class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
             />
           </NuxtLink>
 
-          <!-- Mobile contact -->
+          <!-- =====================================
+               MOBILE CONTACT
+               ===================================== -->
           <div class="mt-5 flex items-center justify-center gap-2">
             <UIcon
               name="i-simple-icons-whatsapp"
